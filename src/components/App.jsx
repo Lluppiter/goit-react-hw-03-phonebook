@@ -55,8 +55,10 @@ export class App extends Component {
     }));
   };
 
-  componentDidUpdate() { 
+  componentDidUpdate(_, prevState) { 
+    if(this.state.contacts !== prevState.contacts){
     localStorage.setItem(LS_KEY, JSON.stringify(this.state.contacts))
+    }
   }
 
   render() {
